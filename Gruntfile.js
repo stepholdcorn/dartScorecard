@@ -7,10 +7,14 @@ module.exports = function(grunt) {
         forceExit: true
       },
       all: 'spec/'
+    },
+    jshint: {
+      src: 'js/'
     }
   });
 
   grunt.loadNpmTasks('grunt-jasmine-node');
-  grunt.registerTask('default','jasmine_node');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.registerTask('default',['jshint','jasmine_node']);
 
 };
