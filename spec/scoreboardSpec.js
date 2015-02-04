@@ -9,12 +9,12 @@ describe('scoreboard', function() {
   });
 
   it('starts with a score of 501', function() {
-    expect(scoreboard.total).toEqual(501);
+    expect(scoreboard.remainingTotal).toEqual(501);
   });
 
   it('subtracts the score of three darts', function() {
     scoreboard.subtractTurnScore(3);
-    expect(scoreboard.total).toEqual(498);
+    expect(scoreboard.remainingTotal).toEqual(498);
   });
 
   it('creates the turn score from throwing three darts', function() {
@@ -23,9 +23,13 @@ describe('scoreboard', function() {
   });
 
   it('ignores a turn score that is greater than the total score', function() {
-    scoreboard.total = 50;
+    scoreboard.remainingTotal = 50;
     scoreboard.subtractTurnScore(60);
-    expect(scoreboard.total).toEqual(50);
+    expect(scoreboard.remainingTotal).toEqual(50);
+  });
+
+  it('should calculate the turn score based on singles, doubles and trebbles', function(){
+    expect(scoreboard.turnScore).toEqual(62);
   });
 
 });

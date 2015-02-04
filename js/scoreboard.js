@@ -1,11 +1,11 @@
 function Scoreboard() {
-  this.total = 501;
+  this.remainingTotal = 501;
   this.turnScore = undefined;
 }
 
 Scoreboard.prototype.subtractTurnScore = function(turnScore) {
-  if (turnScore <= this.total) {
-    this.total -= turnScore;  
+  if (turnScore <= this.remainingTotal) {
+    this.remainingTotal -= turnScore;  
   }
 };
 
