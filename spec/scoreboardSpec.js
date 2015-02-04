@@ -18,7 +18,7 @@ describe('scoreboard', function() {
   });
 
   it('creates the turn score from throwing three darts', function() {
-    scoreboard.calculateTurnScore(1, 1, 1);
+    scoreboard.calculateTurnScore([1, 1, 1]);
     expect(scoreboard.turnScore).toEqual(3);
   });
 
@@ -29,7 +29,8 @@ describe('scoreboard', function() {
   });
 
   it('should calculate the turn score based on singles, doubles and trebbles', function(){
-    expect(scoreboard.turnScore).toEqual(62);
+    scoreboard.transformTurn([{multiplier: 1, score: 7}, {multiplier: 2, score: 14}, {multiplier: 3, score: 9}]);
+    expect(scoreboard.normalizedTurn).toEqual([7, 28, 27]);
   });
 
 });
