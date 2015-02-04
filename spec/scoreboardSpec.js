@@ -23,6 +23,8 @@ describe('scoreboard', function() {
   });
 
   it('ignores a turn score that is greater than the total score', function() {
+    scoreboard.total = 50;
+    scoreboard.subtractTurnScore(60);
     expect(scoreboard.total).toEqual(50);
   });
 

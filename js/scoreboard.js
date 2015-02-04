@@ -4,7 +4,9 @@ function Scoreboard() {
 }
 
 Scoreboard.prototype.subtractTurnScore = function(turnScore) {
-  this.total -= turnScore;
+  if (turnScore <= this.total) {
+    this.total -= turnScore;  
+  }
 };
 
 Scoreboard.prototype.calculateTurnScore = function(dart1, dart2, dart3) {
