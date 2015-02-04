@@ -7,4 +7,10 @@ describe('scoreboard', function() {
     expect(scoreboard.total).toEqual(501);
   });
 
+  it('subtracts the score of three darts', function() {
+    var scoreboard = new Scoreboard();
+    scoreboard.subtractTurnScore(3);
+    expect(scoreboard.total).toEqual(498);
+  });
+
 });
